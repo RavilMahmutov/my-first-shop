@@ -1,0 +1,36 @@
+
+
+ {% extends 'blog/base.html' %}
+
+ {% block content %}
+	{% for post in posts_page %}
+		<div class="post">
+		 	<div class="date">
+		        {{ post.published_date }}
+		    </div>
+		    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+		    {% if post.image %}
+		    	<img src="{{ post.image.url }}">
+		    {% endif %}
+		     <p>{{ post.text|linebreaks }}</p>
+		</div>
+	{% endfor %}
+
+<div class="btngroup">
+		{% if posts_page.has_previous %}
+			<a href="?page={{ posts_page.previous_page_number }}"><span class="glyphicon glyphicon-chevron-left   pagerbutton"></span></a>
+		{% else %}
+			<span class="glyphicon glyphicon-chevron-left   pagerbutton"></span>
+		{% endif %}
+
+		<span class="pagenumber">
+			{{ posts_page.number }}		
+		</span>
+		
+		{% if posts_page.has_next %}
+			<a href="?page={{ posts_page.next_page_number }}"><span class="glyphicon glyphicon-chevron-right pagerbutton"></span></a>
+		{% endif %}
+</div>
+
+
+{% endblock content %}

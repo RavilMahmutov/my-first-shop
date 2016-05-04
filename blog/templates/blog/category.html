@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div class = 'category'>
+		<h1>{{ category.title }}</h1>
+		{% for good in category.goods.all %}
+			<div class="good">
+			    <h3><a class="goodname" href="{% url 'good_detail' pk=good.pk %}"><h3>{{ good.title }}</h3></a></h3>
+			    {% if good.image %}
+			    	<img src="{{ good.image.url }}" class="good-img">
+			    {% endif %}
+			     <p>{{ good.price }} руб.</p>
+			     <p>{{ good.factory }}</p>
+			</div>
+		{% empty %}
+			<p> Товары пока отсутствуют</p>
+		{% endfor %}
+	</div>
+{% endblock %}

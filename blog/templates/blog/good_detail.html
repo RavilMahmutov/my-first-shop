@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div class = 'post'>
+		<h1>{{ good.title }}</h1>
+		{% if good.image %}
+		    	<img src="{{ good.image.url }}">
+		{% endif %}
+		<p>{{ good.description|linebreaks }}</p>
+		<p><b>Цена: {{ good.price }} руб.</b></p>
+		<p><b>Производитель: {{ good.factory }}</b></p>
+	</div>
+
+{% endblock %}
