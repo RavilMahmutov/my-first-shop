@@ -7,5 +7,9 @@ urlpatterns = [
 	url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name = 'post_detail'),
 	url(r'^catefory/(?P<pk>[0-9]+)/$', views.category, name = 'category'),
 	url(r'^good/(?P<pk>[0-9]+)/$', views.good_detail, name = 'good_detail'),
+	url(r'^about/',  views.about, name='about'),
+	url(r'^contacts/',  views.contacts, name='contacts'),
+	url(r'^service/',  views.service, name='service'),
 ]
+
 

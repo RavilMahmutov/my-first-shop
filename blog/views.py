@@ -36,3 +36,17 @@ def good_detail(request, pk):
 	categories = Category.objects.all()
 	good = get_object_or_404(Good, pk=pk)
 	return render(request, 'blog/good_detail.html', {'good': good, 'categories':categories})
+
+
+
+def about(request):
+	categories = Category.objects.all()
+	return render(request, 'blog/about.html', {'categories':categories})
+
+def contacts(request):
+	categories = Category.objects.all()
+	return render(request, 'blog/contacts.html', {'categories':categories})
+
+def service(request):
+	categories = Category.objects.all()
+	return render(request, 'blog/service.html', {'categories':categories})

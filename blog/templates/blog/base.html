@@ -11,12 +11,23 @@
 
 	<body>
 		<div class="page-header">
+			<p class ="top-menu"> <a href="{% url 'about'  %}">О нас</a> | <a href="{% url 'contacts'  %}">Контакты</a> |  <a href="{% url 'service'  %}">Услуги</a> | <a href="/">Новости</a></p>
 			<h1><a href="/">Интерьер</a></h1>
+			<span class="header-text">Салон мебели г. Нефтекамск</span>
 		</div>
 		<div class="furniture-menu">
-			{% for cat in categories %}
-				<div class="cat"><a href="{% url 'category' pk=cat.pk %}">{{ cat.title }}</a></div>
-			{% endfor %}
+			<div class = "furniture-menu-inner">
+				{% for cat in categories %}
+					<div class="cat">
+						<a href="{% url 'category' pk=cat.pk %}">
+							{% if cat.image %}
+			    				<img class="cat-image" src="{{ cat.image.url }}">
+			    			{% endif %}
+		    				<span>{{ cat.title}}</span>
+		    			</a>
+					</div>
+				{% endfor %}
+			</div>
 		</div>
 		<div class="content container">
 	            {% block content %}
